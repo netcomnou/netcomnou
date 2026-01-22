@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="NetComNou - Limpieza profunda de sofás a domicilio en Barcelona. Eliminamos ácaros, bacterias y suciedad con productos ecológicos.">
+    <title>NetComNou - Limpieza Profesional de Sofás en Barcelona</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Comparison Slider */
+        .comparison-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            /* Adjust height as needed */
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Top layer (Before) */
+        .img-before {
+            z-index: 2;
+            width: 100%;
+            /* Fix width to 100% to prevent scaling */
+            border-right: 2px solid white;
+            clip-path: inset(0 50% 0 0);
+            /* Initial clip */
+        }
+
+        /* Bottom layer (After) */
+        .img-after {
+            z-index: 1;
+        }
+
+        .slider-control {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            opacity: 0;
+            cursor: ew-resize;
+            margin: 0;
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            /* Let input handle events */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .reveal-label {
+            position: absolute;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            z-index: 4;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="logo.jpeg" alt="NetComNou Logo" class="h-20 w-auto object-contain rounded-full">
+                <h1 class="text-2xl md:text-3xl font-bold text-gray-800">NetComNou</h1>
+            </div>
+            <a href="#contacto"
+                class="bg-teal-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-teal-700 transition hidden md:block">
+                Contactar
+            </a>
+        </div>
+    </header>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/34659845610?text=Hola,%20quiero%20solicitar%20un%20presupuesto%20para%20limpieza%20de%20sofá"
+        class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="py-12 md:py-20 bg-white overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2 z-10 text-center md:text-left">
+                    <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                        Limpieza profunda y<br><span class="text-teal-600">su sofá como nuevo</span>
+                    </h2>
+                    <p class="text-xl text-gray-700 mb-8 font-medium">
+                        Eliminamos ácaros, bacterias y suciedad acumulada a domicilio.
+                    </p>
+                    <a href="#contacto"
+                        class="inline-block bg-teal-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-teal-700 transition shadow-lg transform hover:-translate-y-1">
+                        Solicitar presupuesto gratis
+                    </a>
+                </div>
+                <div class="w-full md:w-1/2 relative">
+                    <img src="fondo3.png" alt="Limpieza de sofá profesional"
+                        class="relative rounded-2xl w-full object-cover h-[400px] md:h-[500px]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Comparison Section -->
+    <section class="py-16 md:py-24 bg-white" id="resultados">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center text-gray-900 mb-4">
+                Resultados que hablan por sí solos
+            </h2>
+            <p class="text-center text-gray-600 mb-12 text-lg">
+                Desliza para ver la diferencia
+            </p>
+            <div class="max-w-4xl mx-auto">
+                <div class="comparison-container" id="comparisonContainer">
+                    <!-- After Image (Bottom Layer - Full) -->
+                    <div class="comparison-image img-after" style="background-image: url('sofa-after.jpg');">
+                        <span class="reveal-label" style="bottom: 20px; right: 20px;">DESPUÉS</span>
+                    </div>
+
+                    <!-- Before Image (Top Layer - Width controlled) -->
+                    <div class="comparison-image img-before" id="imgBefore"
+                        style="background-image: url('sofa-before.jpg');">
+                        <span class="reveal-label" style="top: 20px; left: 20px;">ANTES</span>
+                    </div>
+
+                    <!-- Slider Input -->
+                    <input type="range" min="0" max="100" value="50" class="slider-control" id="sliderRange"
+                        oninput="updateSlider(this.value)">
+
+                    <!-- Handle Visual -->
+                    <div class="slider-handle" id="sliderHandle">
+                        <i data-lucide="chevrons-left-right" class="text-teal-600 w-6 h-6"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center text-gray-900 mb-16">
+                ¿Por qué elegir NetComNou?
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="droplet" class="text-teal-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Limpieza profunda</h3>
+                    <p class="text-gray-600">
+                        Tecnología de inyección-extracción que elimina hasta el 99% de suciedad, ácaros y bacterias
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="leaf" class="text-teal-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Productos ecológicos</h3>
+                    <p class="text-gray-600">
+                        100% seguros para niños y mascotas. Certificados y biodegradables
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover text-center">
+                    <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="home" class="text-teal-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Servicio a domicilio</h3>
+                    <p class="text-gray-600">
+                        Nos desplazamos a su hogar en Barcelona y alrededores. Sin complicaciones
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-16 md:py-24 relative overflow-hidden" style="background-color: #fbfbfb;">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <!-- Image Side -->
+                <div class="w-full md:w-1/2 relative order-2 md:order-1">
+                    <img src="fondo2.png" alt="Proceso de limpieza"
+                        class="rounded-2xl w-full object-cover h-[400px] md:h-[600px]">
+                </div>
+
+                <!-- Content Side -->
+                <div class="w-full md:w-1/2 order-1 md:order-2">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-12 text-center md:text-left">
+                        Nuestro proceso profesional
+                    </h2>
+                    <div class="space-y-8">
+                        <!-- Step 1 -->
+                        <div
+                            class="flex items-start space-x-6 p-4 rounded-xl hover:bg-gray-50 transition border-l-4 border-teal-600 bg-white shadow-sm">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                                1
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Inspección de tejido</h3>
+                                <p class="text-gray-600 text-lg">
+                                    Analizamos el tipo de tela y el nivel de suciedad para aplicar el tratamiento más
+                                    adecuado.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div
+                            class="flex items-start space-x-6 p-4 rounded-xl hover:bg-gray-50 transition border-l-4 border-teal-600 bg-white shadow-sm">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                                2
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Aspirado profesional</h3>
+                                <p class="text-gray-600 text-lg">
+                                    Eliminamos polvo, ácaros y partículas sueltas con equipos de alta potencia.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div
+                            class="flex items-start space-x-6 p-4 rounded-xl hover:bg-gray-50 transition border-l-4 border-teal-600 bg-white shadow-sm">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                                3
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Inyección-extracción</h3>
+                                <p class="text-gray-600 text-lg">
+                                    Limpieza profunda con agua caliente y productos especializados, seguida de
+                                    extracción inmediata.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 md:py-24 bg-gray-50" id="precios">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center text-gray-900 mb-4">
+                Precios orientativos
+            </h2>
+            <p class="text-center text-gray-600 mb-12 text-lg">
+                Presupuesto final según estado y tipo de tejido
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- Price Card 1 -->
+                <div
+                    class="bg-white rounded-xl shadow-md card-hover overflow-hidden border border-gray-100 flex flex-col">
+                    <img src="2plazas.jpeg" alt="Sofá 2 plazas" class="pricing-img">
+                    <div class="p-6 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Sofá 2 plazas</h3>
+                            <div class="text-4xl font-bold text-teal-600 mb-2">100€</div>
+                            <p class="text-gray-600 text-sm">Limpieza completa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Card 2 -->
+                <div
+                    class="bg-white rounded-xl shadow-xl card-hover overflow-hidden border-2 border-teal-600 transform scale-105 z-10 flex flex-col">
+                    <div class="bg-teal-600 text-white text-center text-xs py-1 font-bold tracking-wider uppercase">
+                        Más popular
+                    </div>
+                    <img src="3plazas.jpeg" alt="Sofá 3 plazas" class="pricing-img">
+                    <div class="p-6 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Sofá 3 plazas</h3>
+                            <div class="text-4xl font-bold text-teal-600 mb-2">120€</div>
+                            <p class="text-gray-600 text-sm">Limpieza completa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Card 3 -->
+                <div
+                    class="bg-white rounded-xl shadow-md card-hover overflow-hidden border border-gray-100 flex flex-col">
+                    <img src="chaiselongue.jpeg" alt="Chaise Longue" class="pricing-img">
+                    <div class="p-6 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Chaise Longue</h3>
+                            <div class="text-4xl font-bold text-teal-600 mb-2">180€</div>
+                            <p class="text-gray-600 text-sm">Limpieza completa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Card 4 -->
+                <div
+                    class="bg-white rounded-xl shadow-md card-hover overflow-hidden border border-gray-100 flex flex-col">
+                    <img src="modular.jpeg" alt="Sofá Modular" class="pricing-img">
+                    <div class="p-6 text-center flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Sofá Modular</h3>
+                            <div class="text-4xl font-bold text-teal-600 mb-2">180€</div>
+                            <p class="text-gray-600 text-sm">Limpieza completa</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Services Section -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center text-gray-900 mb-12">
+                Otros servicios
+            </h2>
+            <div class="max-w-3xl mx-auto bg-gray-50 p-8 md:p-12 rounded-xl">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-center space-x-4 p-4 rounded-lg hover:bg-white transition shadow-sm">
+                        <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="armchair" class="text-teal-600 w-6 h-6"></i>
+                        </div>
+                        <span class="text-gray-800 text-lg font-semibold">Limpieza de sillas</span>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 rounded-lg hover:bg-white transition shadow-sm">
+                        <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="building" class="text-teal-600 w-6 h-6"></i>
+                        </div>
+                        <span class="text-gray-800 text-lg font-semibold">Mobiliario de oficina</span>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 rounded-lg hover:bg-white transition shadow-sm">
+                        <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="anchor" class="text-teal-600 w-6 h-6"></i>
+                        </div>
+                        <span class="text-gray-800 text-lg font-semibold">Interiores de barco</span>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 rounded-lg hover:bg-white transition shadow-sm">
+                        <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="car" class="text-teal-600 w-6 h-6"></i>
+                        </div>
+                        <span class="text-gray-800 text-lg font-semibold">Tapicería de coches</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center text-gray-900 mb-12">
+                Preguntas frecuentes
+            </h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <details class="bg-white p-6 rounded-xl shadow-md">
+                    <summary class="font-bold text-lg text-gray-900 cursor-pointer">
+                        ¿Cuánto tiempo tarda en secar el sofá?
+                    </summary>
+                    <p class="mt-4 text-gray-600">
+                        Normalmente entre 4-6 horas, dependiendo del tipo de tejido y la ventilación. Recomendamos no
+                        usar el sofá hasta que esté completamente seco.
+                    </p>
+                </details>
+
+                <details class="bg-white p-6 rounded-xl shadow-md">
+                    <summary class="font-bold text-lg text-gray-900 cursor-pointer">
+                        ¿Los productos son seguros para niños y mascotas?
+                    </summary>
+                    <p class="mt-4 text-gray-600">
+                        Sí, utilizamos únicamente productos ecológicos certificados, 100% seguros para toda la familia,
+                        incluidas mascotas.
+                    </p>
+                </details>
+
+                <details class="bg-white p-6 rounded-xl shadow-md">
+                    <summary class="font-bold text-lg text-gray-900 cursor-pointer">
+                        ¿Qué tipos de tejidos pueden limpiar?
+                    </summary>
+                    <p class="mt-4 text-gray-600">
+                        Limpiamos todo tipo de tejidos: algodón, lino, microfibra, terciopelo, cuero sintético y más.
+                        Adaptamos el tratamiento a cada material.
+                    </p>
+                </details>
+
+                <details class="bg-white p-6 rounded-xl shadow-md">
+                    <summary class="font-bold text-lg text-gray-900 cursor-pointer">
+                        ¿Cubren toda Barcelona?
+                    </summary>
+                    <p class="mt-4 text-gray-600">
+                        Sí, ofrecemos servicio en Barcelona ciudad y alrededores (hasta 30km). Consulte disponibilidad
+                        para zonas más alejadas.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <!-- Testimonials Section -->
+    <!-- Testimonials Section -->
+    <section class="py-16 md:py-24 relative overflow-hidden" style="background-color: #fbfbfb;">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+
+                <!-- Content Side -->
+                <div class="w-full md:w-3/5">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-12 text-center md:text-left">
+                        Opiniones de clientes
+                    </h2>
+                    <div class="grid gap-6">
+                        <!-- Testimonial 1 -->
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:bg-gray-100 transition duration-300">
+                            <div class="flex mb-4">
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                            </div>
+                            <p class="text-gray-700 mb-4 italic">
+                                "Increíble el resultado. Mi sofá de 5 años parece nuevo. Muy profesionales y puntuales."
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold text-gray-900">María G.</p>
+                                <p class="text-sm text-gray-500">Barcelona</p>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:bg-gray-100 transition duration-300">
+                            <div class="flex mb-4">
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                            </div>
+                            <p class="text-gray-700 mb-4 italic">
+                                "Tengo un niño pequeño y me preocupaba los productos químicos. Totalmente ecológico y
+                                seguro."
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold text-gray-900">Carlos R.</p>
+                                <p class="text-sm text-gray-500">Sant Cugat</p>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div
+                            class="bg-gray-50 p-6 rounded-xl shadow-sm hover:bg-gray-100 transition duration-300 hidden md:block">
+                            <div class="flex mb-4">
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-current"></i>
+                            </div>
+                            <p class="text-gray-700 mb-4 italic">
+                                "Excelente relación calidad-precio. El servicio a domicilio es muy cómodo. 100%
+                                recomendable."
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <p class="font-bold text-gray-900">Laura M.</p>
+                                <p class="text-sm text-gray-500">L'Hospitalet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Side -->
+                <div class="w-full md:w-2/5 mt-8 md:mt-0">
+                    <div class="relative">
+                        <img src="fondo1.png" alt="Cliente satisfecha"
+                            class="relative rounded-2xl w-full object-cover h-[400px] md:h-[500px]">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-teal-600 to-teal-700" id="contacto">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
+                    Solicite su presupuesto gratis
+                </h2>
+                <p class="text-teal-100 text-lg">
+                    Le responderemos en menos de 24 horas
+                </p>
+            </div>
+            <div class="max-w-xl mx-auto text-center">
+                <a href="https://wa.me/34659845610?text=Hola,%20quiero%20solicitar%20un%20presupuesto%20para%20limpieza%20de%20sofá"
+                    target="_blank"
+                    class="inline-flex items-center justify-center space-x-3 bg-white text-teal-600 px-8 py-5 rounded-full font-bold text-xl shadow-lg hover:bg-teal-50 transition transform hover:scale-105">
+                    <i data-lucide="message-circle" class="w-8 h-8"></i>
+                    <span>Contactar por WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <img src="logo.jpeg" alt="NetComNou Logo" class="h-20 w-auto object-contain rounded-full">
+                        <h3 class="text-2xl font-bold">NetComNou</h3>
+                    </div>
+                    <p class="text-gray-400 text-center md:text-left">
+                        Limpieza profesional de sofás y tapicerías en Barcelona
+                    </p>
+                </div>
+
+                <!-- Location -->
+                <div class="text-center md:text-left">
+                    <h4 class="font-bold text-lg mb-4">Ubicación</h4>
+                    <div class="flex items-start justify-center md:justify-start space-x-2 text-gray-400">
+                        <i data-lucide="map-pin" class="w-5 h-5 mt-1 flex-shrink-0"></i>
+                        <p>Barcelona y alrededores<br>(hasta 30km)</p>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="text-center md:text-left">
+                    <h4 class="font-bold text-lg mb-4">Síguenos</h4>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-teal-600 transition">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 NetComNou. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Comparison Slider Logic
+        function updateSlider(val) {
+            const imgBefore = document.getElementById('imgBefore');
+            const sliderHandle = document.getElementById('sliderHandle');
+
+            // Instead of changing width, we change the clip-path
+            // inset(top right bottom left)
+            // We want to clip from the right side.
+            // If val is 50%, we want to show 50% of the image, so we clip 50% from the right.
+            // If val is 0%, we want to show 0% of the image, so we clip 100% from the right.
+            // If val is 100%, we want to show 100% of the image, so we clip 0% from the right.
+            const percentageToClip = 100 - val;
+            imgBefore.style.clipPath = `inset(0 ${percentageToClip}% 0 0)`;
+
+            // Position the handle
+            sliderHandle.style.left = `${val}%`;
+        }
+
+        // Initial setup
+        updateSlider(50);
+
+
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
