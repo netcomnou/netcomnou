@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    <link rel="icon" type="image/jpeg" href="newlogo.JPG">
 
     <style>
         * {
@@ -30,8 +30,8 @@
         .comparison-container {
             position: relative;
             width: 100%;
-            height: 400px;
-            /* Adjust height as needed */
+            aspect-ratio: 1 / 1;
+            /* Make it square */
             overflow: hidden;
             border-radius: 1rem;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
@@ -111,7 +111,7 @@
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <img src="logo.jpeg" alt="NetComNou Logo" class="h-20 w-auto object-contain rounded-full">
+                <img src="newlogo.JPG" alt="NetComNou Logo" class="h-20 w-auto object-contain rounded-full">
                 <h1 class="text-2xl md:text-3xl font-bold text-gray-800">NetComNou</h1>
             </div>
             <a href="#contacto"
@@ -166,13 +166,12 @@
             <div class="max-w-4xl mx-auto">
                 <div class="comparison-container" id="comparisonContainer">
                     <!-- After Image (Bottom Layer - Full) -->
-                    <div class="comparison-image img-after" style="background-image: url('sofa-after.jpg');">
+                    <div class="comparison-image img-after" style="background-image: url('post.jpg');">
                         <span class="reveal-label" style="bottom: 20px; right: 20px;">DESPUÉS</span>
                     </div>
 
                     <!-- Before Image (Top Layer - Width controlled) -->
-                    <div class="comparison-image img-before" id="imgBefore"
-                        style="background-image: url('sofa-before.jpg');">
+                    <div class="comparison-image img-before" id="imgBefore" style="background-image: url('pre.jpg');">
                         <span class="reveal-label" style="top: 20px; left: 20px;">ANTES</span>
                     </div>
 
@@ -568,7 +567,7 @@
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
-                        <img src="logo.jpeg" alt="NetComNou Logo" class="h-20 w-auto object-contain rounded-full">
+                        <img src="newlogo.JPG" alt="NetComNou Logo" class="h-20 w-auto object-contain rounded-full">
                         <h3 class="text-2xl font-bold">NetComNou</h3>
                     </div>
                     <p class="text-gray-400 text-center md:text-left">
